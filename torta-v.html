@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Nosso Cardápio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      min-height: 100vh;
+      font-family: 'Playfair Display', serif;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-image: url('tema.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* isso resolve o fundo não acompanhar a rolagem */
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .imagem-canto {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+
+    .navbar {
+      background-color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li {
+      display: inline;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #ff69b4;
+    }
+
+    .sobre-container {
+      width: 90%;
+      max-width: 700px;
+      margin: 90px auto;
+      padding: 50px;
+      background-color: #fff8f0;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      font-size: 18px;
+      text-align: center;
+      color: #4a2c2a;
+      position: relative;
+      z-index: 3;
+    }
+
+    .sobre-container h3 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #d48806;
+    }
+
+    .carrossel {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .carrossel-imagens {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .carrossel-imagens img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .carrossel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255,255,255,0.7);
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 2;
+    }
+
+    .anterior {
+      left: 10px;
+    }
+
+    .proximo {
+      right: 10px;
+    }
+
+    .text h2 {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .text p {
+      margin-top: 10px;
+      color: #555;
+      font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .sobre-container {
+        padding: 30px 20px;
+      }
+
+      .carrossel {
+        height: 200px;
+      }
+
+      .text h2 {
+        font-size: 20px;
+      }
+
+      .text p {
+        font-size: 14px;
+      }
+
+      .imagem-canto {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="marca.png" alt="logo" class="imagem-canto" />
+
+  <div class="overlay"></div>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Página Inicial</a></li>
+      <li><a href="historia.html">Nossa História</a></li>
+      <li><a href="contatos.html">Contatos</a></li>
+      <li><a href="cat.html">Nosso Cardápio</a></li>
+    </ul>
+  </nav>
+
+  <div class="sobre-container">
+    <h3>Torta de Vitrine</h3>
+
+    <div class="carrossel">
+      <button class="anterior">&#10094;</button>
+      <div class="carrossel-imagens">
+        <img src="imagens/torta.jpeg" alt="foto 1">
+        <img src="imagens/torta2.jpeg" alt="foto 2">
+      </div>
+      <button class="proximo">&#10095;</button>
+    </div>
+
+    <div class="text">
+      <h2>R$79,99</h2>
+      <p>Feita pra brilhar na vitrine e no paladar, ela une camadas perfeitas de massa leve, recheios marcantes e finalização de confeitaria fina. Se os olhos comem primeiro, aqui eles se apaixonam antes mesmo da primeira garfada.</p>
+    </div>
+  </div>
+
+  <script>
+    const carrossel = document.querySelector('.carrossel-imagens');
+    const imagens = document.querySelectorAll('.carrossel-imagens img');
+    let index = 0;
+
+    document.querySelector('.proximo').addEventListener('click', () => {
+      index = (index + 1) % imagens.length;
+      carrossel.style.transform = `translateX(-${index * 100}%)`;
+    });
+
+    document.querySelector('.anterior').addEventListener('click', () => {
+      index = (index - 1 + imagens.length) % imagens.length;
+      carrossel.style.transform = `translateX(-${index * 100}%)`;
+    });
+  </script>
+
+</body>
+</html>

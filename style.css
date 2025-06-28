@@ -1,0 +1,186 @@
+ body {
+        background-image: url('tema.jpg');  
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        font-family: 'Playfair Display',serif;
+        margin-top: 100px; 
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100vh;
+    }
+    h1, h2{
+        color: white;
+    }
+.overlay{
+    background-color: rgba(0, 0, 0, 0.5 );
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    top: 0; left: 0;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 55px;
+    align-items: center;
+    text-align: center;
+    color:white;
+}
+.botao{
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #ff69b4;
+    color:white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover{
+    background-color: #ff1493;
+    ;
+}
+
+
+        .navbar {
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff69b4; /* rosa claro - você pode mudar a cor */
+}
+   
+.imagem-canto{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+
+}
+
+.sobre-container{
+    width: 80%;
+    margin: 100px auto 100px auto;
+    padding: 30px;
+    background-color: #fff8f0;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    text-align: center;
+    color:#4a2c2a;
+    position: relative;
+    z-index: 10;
+   
+}
+
+.sobre-container h3 {
+    margin: 0 auto ;
+    font-size: 30px;
+    margin-bottom: 14px;
+    color: #d48806;
+
+   
+
+}
+
+.sobre-container img{
+  width: 120px;
+  height: auto;
+
+
+
+}
+  @media (max-width: 600px) {
+      html, body {
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 36px;
+        padding: 30px 10px;
+        background-size: 300px;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .navbar a {
+        font-size: 16px;
+      }
+
+      .grid-cardapio {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+      }
+
+      .card-produto-gourmet img {
+        height: 150px;
+      }
+
+      .conteudo {
+        padding: 20px 10px;
+      }
+
+      .conteudo-produto h3 {
+        font-size: 22px;
+      }
+
+      .descricao {
+        font-size: 0.9em;
+      }
+
+      .botao-detalhes {
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+
+      .imagem-canto {
+        width: 50px;
+        height: 50px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }

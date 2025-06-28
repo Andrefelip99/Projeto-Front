@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <img src="marca.png" alt="imagem arredondada" class="imagem-canto">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Nosso Cardápio</title>
+    
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Playfair Display',serif;
+        }
+
+        body {
+            background-image: url('tema.jpg');  
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .conteudo {
+            position: relative;
+            z-index: 1;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 64px;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0);
+            background-image: url('https://i.imgur.com/FkUyZwT.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 500px;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .container h2 {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+
+        }
+
+        .navbar {
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff69b4; /* rosa claro - você pode mudar a cor */
+}
+
+.imagem-canto{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0g, 0, 0.3);
+    z-index: 9999;
+
+}
+  @media (max-width: 600px) {
+      html, body {
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 36px;
+        padding: 30px 10px;
+        background-size: 300px;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .navbar a {
+        font-size: 16px;
+      }
+
+      .grid-cardapio {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+      }
+
+      .card-produto-gourmet img {
+        height: 150px;
+      }
+
+      .conteudo {
+        padding: 20px 10px;
+      }
+
+      .conteudo-produto h3 {
+        font-size: 22px;
+      }
+
+      .descricao {
+        font-size: 0.9em;
+      }
+
+      .botao-detalhes {
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+
+      .imagem-canto {
+        width: 50px;
+        height: 50px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <nav class="navbar">
+    <ul>
+        <li><a href="index.html">Página Inicial</a></li>
+        <li><a href="historia.html">Nossa História</a></li>
+        <li><a href="contatos.html">Contatos</a></li>
+        <li><a href="cat.html">Nosso Cardapio</a></li>
+        
+        
+    </ul>
+</nav>
