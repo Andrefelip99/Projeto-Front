@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,19 +8,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
     html, body {
-      height: 100%;
-      min-height: 100vh;
+      height: 100%; min-height: 100vh;
       font-family: 'Playfair Display', serif;
       overflow-x: hidden;
       color: white;
+      transition: margin-left 0.3s ease;
     }
-
     .background-img {
       position: fixed;
       top: 0; left: 0;
@@ -29,7 +24,6 @@
       background: url('tema.jpg') center center / cover no-repeat fixed;
       z-index: -2;
     }
-
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -47,39 +41,16 @@
       padding: 15px 20px;
       background: transparent;
       gap: 20px;
+      transition: margin-left 0.3s ease;
     }
-
     .imagem-canto {
-      width: 65px;
-      height: 65px;
+      width: 65px; height: 65px;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       flex-shrink: 0;
     }
-
-    .menu-links {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-grow: 1;
-    }
-
-    .menu-links li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 18px;
-      transition: color 0.3s ease;
-    }
-
-    .menu-links li a:hover {
-      color: #ff69b4;
-    }
-
     .menu-hamburguer {
-      display: none;
       font-size: 30px;
       cursor: pointer;
       color: white;
@@ -87,7 +58,47 @@
       flex-shrink: 0;
       z-index: 1010;
     }
+    /* Menu lateral */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Escondido inicialmente */
+      width: 250px;
+      height: 100vh;
+      background-color: white;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+      padding-top: 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: left 0.3s ease;
+      z-index: 1500;
+    }
+    .side-menu.show {
+      left: 0;
+    }
+    .side-menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: background 0.3s ease;
+    }
+    .side-menu a:hover {
+      background-color: #ff69b4;
+      color: white;
+    }
 
+    /* Conteúdo principal que será empurrado */
+    .conteudo, nav.navbar {
+      transition: margin-left 0.3s ease;
+    }
+    .shifted {
+      margin-left: 250px;
+    }
+
+    /* Conteúdo e grid */
     .conteudo {
       position: relative;
       z-index: 5;
@@ -95,18 +106,17 @@
       text-align: center;
       margin-bottom: 40px;
     }
-
     h1 {
       font-size: 64px;
       margin-bottom: 40px;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      background-image: url('https://i.imgur.com/FkUyZwT.png');
       background-repeat: no-repeat;
       background-position: center;
       background-size: 500px;
       padding: 60px 20px;
       color: white;
     }
-
     .grid-cardapio {
       max-width: 1200px;
       margin: 0 auto;
@@ -116,7 +126,6 @@
       z-index: 5;
       position: relative;
     }
-
     .card-produto-gourmet {
       background: rgba(255,255,255,0.1);
       border-radius: 20px;
@@ -128,18 +137,15 @@
       display: flex;
       flex-direction: column;
     }
-
     .card-produto-gourmet:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.4);
     }
-
     .card-produto-gourmet img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
-
     .conteudo-produto {
       padding: 20px;
       flex-grow: 1;
@@ -147,32 +153,27 @@
       flex-direction: column;
       justify-content: space-between;
     }
-
     .conteudo-produto h3 {
       font-family: 'Dancing Script', cursive;
       font-size: 28px;
       margin-bottom: 10px;
     }
-
     .descricao {
       font-size: 0.95em;
       color: #eee;
       margin-bottom: 15px;
       flex-grow: 1;
     }
-
     .rodape-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
     .preco {
       font-size: 1.2em;
       font-weight: bold;
       color: #ffcc99;
     }
-
     .botao-detalhes {
       background-color: #ff69b4;
       color: white;
@@ -182,81 +183,51 @@
       font-weight: bold;
       transition: background 0.3s ease;
     }
-
     .botao-detalhes:hover {
       background-color: #ff85c1;
     }
 
     /* RESPONSIVO */
     @media (max-width: 600px) {
-      nav.navbar {
-        justify-content: space-between;
-      }
-
-      .menu-links {
-        display: none;
-        position: absolute;
-        top: 55px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background-color: white;
-        padding: 20px 0;
-        gap: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        z-index: 1000;
-        flex-grow: 0;
-      }
-
-      .menu-links.show {
-        display: flex;
-      }
-
-      .menu-links li a {
-        color: #333;
-        font-size: 16px;
-      }
-
-      .menu-hamburguer {
-        display: block;
-      }
-
-      .imagem-canto {
-        width: 50px;
-        height: 50px;
-      }
-
       h1 {
         font-size: 36px;
         padding: 30px 10px;
         background-size: 300px;
       }
-
       .grid-cardapio {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 0 10px;
       }
-
       .card-produto-gourmet img {
         height: 150px;
       }
-
       .conteudo {
         padding: 20px 10px;
       }
-
       .conteudo-produto h3 {
         font-size: 22px;
       }
-
       .descricao {
         font-size: 0.9em;
       }
-
       .botao-detalhes {
         padding: 6px 12px;
         font-size: 14px;
+      }
+      /* Esconde o menu lateral, volta para o antigo menu hamburguer */
+      .side-menu {
+        display: none !important;
+      }
+      nav.navbar {
+        justify-content: space-between;
+        margin-left: 0 !important;
+      }
+      .conteudo {
+        margin-left: 0 !important;
+      }
+      .menu-hamburguer {
+        display: block;
       }
     }
   </style>
@@ -266,22 +237,22 @@
   <div class="background-img"></div>
   <div class="overlay"></div>
 
-  <nav class="navbar">
-    <div class="menu-hamburguer" onclick="toggleMenu()">☰</div>
-    <ul class="menu-links" id="menuLinks">
-      <li><a href="index.html">Página Inicial</a></li>
-      <li><a href="historia.html">Nossa História</a></li>
-      <li><a href="contatos.html">Contatos</a></li>
-      <li><a href="cat.html">Nosso Cardápio</a></li>
-    </ul>
+  <nav class="navbar" id="navbar">
+    <div class="menu-hamburguer" id="menuBtn">☰</div>
     <img src="marca.png" alt="Logo arredondada" class="imagem-canto" />
   </nav>
 
-  <div class="conteudo">
+  <nav class="side-menu" id="sideMenu">
+    <a href="index.html">Página Inicial</a>
+    <a href="historia.html">Nossa História</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="cat.html">Nosso Cardápio</a>
+  </nav>
+
+  <div class="conteudo" id="conteudo">
     <h1>Nosso Cardápio</h1>
 
     <div class="grid-cardapio">
-
       <div class="card-produto-gourmet">
         <img src="imagens/pudim.jpeg" alt="Pudim Tradicional" />
         <div class="conteudo-produto">
@@ -293,7 +264,6 @@
           </div>
         </div>
       </div>
-
       <div class="card-produto-gourmet">
         <img src="bolo88.jpeg" alt="Bolo de Festa" />
         <div class="conteudo-produto">
