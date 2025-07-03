@@ -6,6 +6,7 @@
   <title>Nosso Cardápio</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -15,9 +16,6 @@
 
     html, body {
       height: 100%;
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
       font-family: 'Playfair Display', serif;
       overflow-x: hidden;
     }
@@ -30,7 +28,6 @@
       height: 100vh;
       background: url('tema.jpg') center center / cover no-repeat fixed;
       z-index: -2;
-      
     }
 
     .overlay {
@@ -44,7 +41,7 @@
     }
 
     .imagem-canto {
-      position:absolute;
+      position: absolute;
       top: 0;
       left: 0;
       width: 65px;
@@ -55,24 +52,30 @@
       z-index: 9999;
     }
 
-    .navbar {
+    nav.navbar {
       background-color: white;
-      padding: 21px 0;
-      text-align: center;
+      z-index: 10;
       position: relative;
-      z-index: 2;
     }
 
-    .navbar ul {
-      list-style: none;
+    .menu-hamburguer {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: #333;
+      padding: 15px 20px;
+    }
+
+    .menu-links {
       display: flex;
       justify-content: center;
       gap: 40px;
+      list-style: none;
+      padding: 20px 0;
       margin: 0;
-      padding: 0;
     }
 
-    .navbar a {
+    .menu-links a {
       text-decoration: none;
       font-size: 18px;
       font-weight: bold;
@@ -80,7 +83,7 @@
       transition: color 0.3s ease;
     }
 
-    .navbar a:hover {
+    .menu-links a:hover {
       color: #ff69b4;
     }
 
@@ -118,10 +121,10 @@
       overflow: hidden;
       backdrop-filter: blur(8px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       color: white;
       display: flex;
       flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card-produto-gourmet:hover {
@@ -177,85 +180,83 @@
       background-color: #ff85c1;
     }
 
-    a {
-      text-decoration: none;
-    }
-
-    /* MEDIA QUERY MOBILE */
     @media (max-width: 600px) {
-      html, body {
-        font-size: 16px;
-      }
-
       h1 {
-        font-size: 42px;
-        padding: 40px 20px;
-        background-size: 250px;
+        font-size: 36px;
+        padding: 30px 10px;
+        background-size: 300px;
       }
 
-      .navbar ul {
+      .menu-hamburguer {
+        display: block;
+      }
+
+      .menu-links {
+        display: none;
         flex-direction: column;
-        gap: 15px;
+        align-items: center;
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        gap: 20px;
+        padding: 20px 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       }
 
-      .navbar a {
-        font-size: 18px;
+      .menu-links.show {
+        display: flex;
       }
 
       .grid-cardapio {
         grid-template-columns: 1fr;
-        gap: 24px;
-        padding: 0 20px;
+        gap: 20px;
+        padding: 0 10px;
       }
 
       .card-produto-gourmet img {
-        height: 170px;
+        height: 150px;
       }
 
       .conteudo {
-        padding: 30px 20px;
+        padding: 20px 10px;
       }
 
       .conteudo-produto h3 {
-        font-size: 24px;
+        font-size: 22px;
       }
 
       .descricao {
-        font-size: 1em;
+        font-size: 0.9em;
       }
 
       .botao-detalhes {
-        padding: 10px 16px;
-        font-size: 24px;
+        padding: 6px 12px;
+        font-size: 14px;
       }
 
       .imagem-canto {
-        width: 60px;
-        height: 60px;
-      }
-
-      a {
-        text-decoration: none;
+        width: 50px;
+        height: 50px;
       }
     }
   </style>
 </head>
-<body>
 
+<body>
   <div class="background-img"></div>
   <div class="overlay"></div>
 
- 
+  <img src="marca.png" alt="imagem arredondada" class="imagem-canto" />
 
   <nav class="navbar">
-    <ul>
+    <div class="menu-hamburguer" onclick="toggleMenu()">☰</div>
+    <ul class="menu-links">
       <li><a href="index.html">Página Inicial</a></li>
       <li><a href="historia.html">Nossa História</a></li>
       <li><a href="contatos.html">Contatos</a></li>
       <li><a href="cat.html">Nosso Cardápio</a></li>
-
-
-       <img src="marca.png" alt="imagem arredondada" class="imagem-canto" />
     </ul>
   </nav>
 
@@ -263,7 +264,6 @@
     <h1>Nosso Cardápio</h1>
 
     <div class="grid-cardapio">
-
       <div class="card-produto-gourmet">
         <img src="imagens/pudim.jpeg" alt="Pudim Tradicional" />
         <div class="conteudo-produto">
@@ -323,9 +323,14 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu-links');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
