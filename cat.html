@@ -195,7 +195,7 @@
   <div class="overlay"></div>
 
   <nav class="navbar">
-    <div class="menu-hamburguer" onclick="toggleMenu()">☰</div>
+    <div class="menu-hamburguer" onclick="btnaMenu">☰</div>
     <img src="marca.png" alt="Logo arredondada" class="imagem-canto" />
   </nav>
 
@@ -249,15 +249,16 @@
   </div>
 
   <script>
-    function toggleMenu() {
+    const btn = document.getElemrntById('btnMenu');
       const menu = document.getElementById('sideMenu');
       const conteudo = document.getElementById('conteudo');
       const navbar = document.querySelector('.navbar');
 
+      btn.addEventListener('click', function() {
       menu.classList.toggle('show');
       conteudo.classList.toggle('shifted');
       navbar.classList.toggle('shifted');
-    }
+    });
   </script>
 
 </body>
