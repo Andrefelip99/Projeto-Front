@@ -27,7 +27,7 @@
       width: 100vw;
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.6);
-      z-index: 0;
+      z-index: -1;
     }
 
     .imagem-canto {
@@ -90,6 +90,8 @@
 
     .wrapper {
       transition: margin-left 0.3s ease;
+      z-index:0;
+      position: relative;
     }
 
     .wrapper.shifted {
@@ -121,6 +123,10 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.6);
       text-align: center;
       color: #4a2c2a;
+      z-index: 1
+      position: relative;
+    
+    
     }
 
     .sobre-container h1 {
