@@ -10,20 +10,15 @@
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
+
     html, body {
-      height: 100%; min-height: 100vh;
+      height: 100%;
       font-family: 'Playfair Display', serif;
       overflow-x: hidden;
       color: white;
-      transition: margin-left 0.3s ease;
-    }
-    .background-img {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
       background: url('tema.jpg') center center / cover no-repeat fixed;
-      z-index: -2;
     }
+
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -36,33 +31,32 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
-      z-index: 10;
       padding: 15px 20px;
+      z-index: 10;
+      position: relative;
       background: transparent;
-      gap: 20px;
       transition: margin-left 0.3s ease;
     }
-    .imagem-canto {
-      width: 65px; height: 65px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      flex-shrink: 0;
-    }
+
     .menu-hamburguer {
       font-size: 30px;
       cursor: pointer;
       color: white;
-      user-select: none;
-      flex-shrink: 0;
-      z-index: 1010;
+      z-index: 2000;
     }
-    /* Menu lateral */
+
+    .imagem-canto {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
     .side-menu {
       position: fixed;
       top: 0;
-      left: -250px; /* Escondido inicialmente */
+      left: -250px;
       width: 250px;
       height: 100vh;
       background-color: white;
@@ -73,11 +67,8 @@
       gap: 20px;
       transition: left 0.3s ease;
       z-index: 1500;
-      ouverflow-y:auto;
     }
-    .side-menu.show {
-      left: 0;
-    }
+
     .side-menu a {
       color: #333;
       text-decoration: none;
@@ -85,69 +76,64 @@
       font-size: 18px;
       padding: 10px 20px;
       transition: background 0.3s ease;
-      white-space: nowrap;
     }
+
     .side-menu a:hover {
       background-color: #ff69b4;
       color: white;
     }
 
-    /* Conteúdo principal que será empurrado */
-    .conteudo, nav.navbar {
+    .side-menu.show {
+      left: 0;
+    }
+
+    .conteudo {
+      padding: 40px 20px;
       transition: margin-left 0.3s ease;
     }
-    .shifted {
+
+    .conteudo.shifted,
+    nav.navbar.shifted {
       margin-left: 250px;
     }
 
-    /* Conteúdo e grid */
-    .conteudo {
-      position: relative;
-      z-index: 5;
-      padding: 40px 20px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
     h1 {
       font-size: 64px;
       margin-bottom: 40px;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-    
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 500px;
-      padding: 60px 20px;
       color: white;
     }
+
     .grid-cardapio {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      z-index: 5;
-      position: relative;
     }
+
     .card-produto-gourmet {
       background: rgba(255,255,255,0.1);
       border-radius: 20px;
       overflow: hidden;
       backdrop-filter: blur(8px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       color: white;
       display: flex;
       flex-direction: column;
     }
+
     .card-produto-gourmet:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.4);
     }
+
     .card-produto-gourmet img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
+
     .conteudo-produto {
       padding: 20px;
       flex-grow: 1;
@@ -155,27 +141,31 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
     .conteudo-produto h3 {
       font-family: 'Dancing Script', cursive;
       font-size: 28px;
       margin-bottom: 10px;
     }
+
     .descricao {
       font-size: 0.95em;
       color: #eee;
       margin-bottom: 15px;
-      flex-grow: 1;
     }
+
     .rodape-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .preco {
       font-size: 1.2em;
       font-weight: bold;
       color: #ffcc99;
     }
+
     .botao-detalhes {
       background-color: #ff69b4;
       color: white;
@@ -185,62 +175,27 @@
       font-weight: bold;
       transition: background 0.3s ease;
     }
+
     .botao-detalhes:hover {
       background-color: #ff85c1;
     }
 
-    /* RESPONSIVO */
     @media (max-width: 600px) {
       h1 {
         font-size: 36px;
-        padding: 30px 10px;
-        background-size: 300px;
       }
       .grid-cardapio {
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-      }
-      .card-produto-gourmet img {
-        height: 150px;
-      }
-      .conteudo {
-        padding: 20px 10px;
-      }
-      .conteudo-produto h3 {
-        font-size: 22px;
-      }
-      .descricao {
-        font-size: 0.9em;
-      }
-      .botao-detalhes {
-        padding: 6px 12px;
-        font-size: 14px;
-      }
-      /* Esconde o menu lateral, volta para o antigo menu hamburguer */
-      .side-menu {
-        display: none !important;
-      }
-      nav.navbar {
-        justify-content: space-between;
-        margin-left: 0 !important;
-      }
-      .conteudo {
-        margin-left: 0 !important;
-      }
-      .menu-hamburguer {
-        display: block;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="background-img"></div>
   <div class="overlay"></div>
 
-  <nav class="navbar" id="navbar">
-    <div class="menu-hamburguer" id="menuBtn">☰</div>
+  <nav class="navbar">
+    <div class="menu-hamburguer" onclick="toggleMenu()">☰</div>
     <img src="marca.png" alt="Logo arredondada" class="imagem-canto" />
   </nav>
 
@@ -266,6 +221,7 @@
           </div>
         </div>
       </div>
+
       <div class="card-produto-gourmet">
         <img src="bolo88.jpeg" alt="Bolo de Festa" />
         <div class="conteudo-produto">
@@ -289,26 +245,18 @@
           </div>
         </div>
       </div>
-
-      <div class="card-produto-gourmet">
-        <img src="imagens/browner.jpeg" alt="Brownie Gourmet" />
-        <div class="conteudo-produto">
-          <h3>Brownie Gourmet</h3>
-          <p class="descricao">Brownie molhadinho com cobertura de chocolate belga.</p>
-          <div class="rodape-card">
-            <span class="preco">R$ 12,00</span>
-            <a href="brownie.html" class="botao-detalhes">Ver mais</a>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById('menuLinks');
+      const menu = document.getElementById('sideMenu');
+      const conteudo = document.getElementById('conteudo');
+      const navbar = document.querySelector('.navbar');
+
       menu.classList.toggle('show');
+      conteudo.classList.toggle('shifted');
+      navbar.classList.toggle('shifted');
     }
   </script>
 
