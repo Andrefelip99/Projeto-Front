@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     html, body {
@@ -17,140 +20,95 @@
       overflow-x: hidden;
       color: white;
       background: url('tema.jpg') center center / cover no-repeat fixed;
-    }  
-    
-    
-    
+    }
 
-
-  .sobre-container {
-    width: 80%;
-    margin: 30px auto;
-    padding: 30px;
-    background-color: #fff8f0;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-    font-size: 18px;
-    text-align: center;
-    color: #4a2c2a;
-    position: relative;
-    z-index: 10;
-  }
-
-  .sobre-container h3 {
-    margin: 0 auto;
-    font-size: 30px;
-    margin-bottom: 14px;
-    color: #d48806;
-  }
-
-  .sobre-container p {
-    margin-top: 10px;
-  }
     .overlay {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background-color: rgba(0,0,0,0.6);
       z-index: -1;
     }
 
-    nav.navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 20px;
-      z-index: 10;
+    .navbar {
+      background-color: white;
+      padding: 20px 0;
+      text-align: center;
       position: relative;
-      background: transparent;
+      z-index: 2;
     }
 
-    .menu-hamburguer {
-      font-size: 30px;
-      cursor: pointer;
-      color: white;
-      position: relative;
-      z-index: 3000;
-      user-select: none;
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #ff69b4;
     }
 
     .imagem-canto {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 65px;
       height: 65px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100vh;
-      background-color: white;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.3);
-      padding-top: 70px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      transition: left 0.3s ease;
-      z-index: 1500;
-      overflow-y: auto;
-    }
-
-    .side-menu a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 18px;
-      padding: 10px 20px;
-      transition: background 0.3s ease;
-      white-space: nowrap;
-    }
-
-    .side-menu a:hover {
-      background-color: #ff69b4;
-      color: white;
-    }
-
-    .side-menu.show {
-      left: 0;
-    }
-
-    .wrapper {
-      transition: transform 0.3s ease;
-      will-change: transform;
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-    }
-
-    .wrapper.shifted {
-      transform: translateX(250px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
     }
 
     .conteudo {
+      position: relative;
+      z-index: 1;
       padding: 40px 20px;
+      margin-bottom: 40px;
+    }
+
+    .sobre-container {
+      width: 90%;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #fff8f0;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      font-size: 18px;
+      text-align: center;
+      color: #4a2c2a;
     }
 
     h1 {
-      font-size: 64px;
       margin-bottom: 40px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-      color: white;
+      font-size: 64px;
+      color: #d48806;
+      text-shadow: none;
     }
 
     .grid-cardapio {
-      max-width: 1200px;
-      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card-produto-gourmet {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.15);
       border-radius: 20px;
       overflow: hidden;
       backdrop-filter: blur(8px);
@@ -158,7 +116,6 @@
       color: white;
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card-produto-gourmet:hover {
@@ -174,10 +131,6 @@
 
     .conteudo-produto {
       padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
     .conteudo-produto h3 {
@@ -190,7 +143,6 @@
       font-size: 0.95em;
       color: #eee;
       margin-bottom: 15px;
-      flex-grow: 1;
     }
 
     .rodape-card {
@@ -213,41 +165,61 @@
       text-decoration: none;
       font-weight: bold;
       transition: background 0.3s ease;
-      white-space: nowrap;
     }
 
     .botao-detalhes:hover {
       background-color: #ff85c1;
     }
 
+    /* Responsivo */
     @media (max-width: 600px) {
       h1 {
         font-size: 36px;
       }
+
       .grid-cardapio {
         grid-template-columns: 1fr;
+        padding: 0 10px;
+      }
+
+      .imagem-canto {
+        width: 50px;
+        height: 50px;
+      }
+
+      .conteudo-produto h3 {
+        font-size: 22px;
+      }
+
+      .descricao {
+        font-size: 0.9em;
+      }
+
+      .botao-detalhes {
+        padding: 6px 12px;
+        font-size: 14px;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="overlay"></div>
+  <img src="marca.png" alt="imagem arredondada" class="imagem-canto" />
 
-  <div class="wrapper" id="wrapper">
-    <nav class="navbar">
-      <div class="menu-hamburguer" id="btnMenu">☰</div>
-      <img src="marca.png" alt="Logo arredondada" class="imagem-canto" />
-    </nav>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Página Inicial</a></li>
+      <li><a href="historia.html">Nossa História</a></li>
+      <li><a href="contatos.html">Contatos</a></li>
+      <li><a href="cat.html">Nosso Cardápio</a></li>
+    </ul>
+  </nav>
 
-    <div class="conteudo" id="conteudo">
+  <div class="conteudo">
+    <div class="sobre-container">
       <h1>Nosso Cardápio</h1>
-<div class="sobre-container">
-  <h3>Descubra nossas delícias</h3>
-  <p>Selecionamos os melhores sabores com todo carinho. Conheça nosso cardápio especial feito com ingredientes frescos e receitas caseiras.</p>
-</div>
-      <div class="grid-cardapio">
 
+      <div class="grid-cardapio">
         <div class="card-produto-gourmet">
           <img src="imagens/pudim.jpeg" alt="Pudim Tradicional" />
           <div class="conteudo-produto">
@@ -296,7 +268,7 @@
           </div>
         </div>
 
-        <div class="card-produto-gourmet">
+       <div class="card-produto-gourmet">
           <img src="slice.jpeg" alt="Slice Cake" />
           <div class="conteudo-produto">
             <h3>Slice Cake</h3>
