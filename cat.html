@@ -35,14 +35,16 @@
       z-index: 10;
       position: relative;
       background: transparent;
-      transition: margin-left 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .menu-hamburguer {
       font-size: 30px;
       cursor: pointer;
       color: white;
-      z-index: 2000;
+      position: relative;
+      z-index: 3000;
+      user-select: none;
     }
 
     .imagem-canto {
@@ -67,6 +69,7 @@
       gap: 20px;
       transition: left 0.3s ease;
       z-index: 1500;
+      overflow-y: auto;
     }
 
     .side-menu a {
@@ -76,6 +79,7 @@
       font-size: 18px;
       padding: 10px 20px;
       transition: background 0.3s ease;
+      white-space: nowrap;
     }
 
     .side-menu a:hover {
@@ -87,14 +91,19 @@
       left: 0;
     }
 
-    .conteudo {
-      padding: 40px 20px;
-      transition: margin-left 0.3s ease;
+    .wrapper {
+      transition: transform 0.3s ease;
+      will-change: transform;
+      position: relative;
+      z-index: 1;
     }
 
-    .conteudo.shifted,
-    nav.navbar.shifted {
-      margin-left: 250px;
+    .wrapper.shifted {
+      transform: translateX(250px);
+    }
+
+    .conteudo {
+      padding: 40px 20px;
     }
 
     h1 {
@@ -121,6 +130,7 @@
       color: white;
       display: flex;
       flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card-produto-gourmet:hover {
@@ -174,6 +184,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: background 0.3s ease;
+      white-space: nowrap;
     }
 
     .botao-detalhes:hover {
@@ -194,10 +205,56 @@
 
   <div class="overlay"></div>
 
-  <nav class="navbar">
-    <div class="menu-hamburguer" onclick="btnaMenu">☰</div>
-    <img src="marca.png" alt="Logo arredondada" class="imagem-canto" />
-  </nav>
+  <div class="wrapper" id="wrapper">
+    <nav class="navbar">
+      <div class="menu-hamburguer" id="btnMenu">☰</div>
+      <img src="marca.png" alt="Logo arredondada" class="imagem-canto" />
+    </nav>
+
+    <div class="conteudo" id="conteudo">
+      <h1>Nosso Cardápio</h1>
+
+      <div class="grid-cardapio">
+
+        <div class="card-produto-gourmet">
+          <img src="imagens/pudim.jpeg" alt="Pudim Tradicional" />
+          <div class="conteudo-produto">
+            <h3>Pudim Tradicional</h3>
+            <p class="descricao">Receita caseira com leite condensado e calda caramelizada.</p>
+            <div class="rodape-card">
+              <span class="preco">R$ 7,00</span>
+              <a href="sobremesas.html" class="botao-detalhes">Ver mais</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-produto-gourmet">
+          <img src="bolo88.jpeg" alt="Bolo de Festa" />
+          <div class="conteudo-produto">
+            <h3>Bolo de Festa</h3>
+            <p class="descricao">Bolo decorado com recheio duplo, ideal para aniversários e comemorações.</p>
+            <div class="rodape-card">
+              <span class="preco">R$ 40,00</span>
+              <a href="bolo-f.html" class="botao-detalhes">Ver mais</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-produto-gourmet">
+          <img src="imagens/torta.jpeg" alt="Torta de Vitrine" />
+          <div class="conteudo-produto">
+            <h3>Torta de Vitrine</h3>
+            <p class="descricao">Torta delicada com massa amanteigada e frutas frescas.</p>
+            <div class="rodape-card">
+              <span class="preco">R$ 25,00</span>
+              <a href="torta-v.html" class="botao-detalhes">Ver mais</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <nav class="side-menu" id="sideMenu">
     <a href="index.html">Página Inicial</a>
@@ -206,58 +263,14 @@
     <a href="cat.html">Nosso Cardápio</a>
   </nav>
 
-  <div class="conteudo" id="conteudo">
-    <h1>Nosso Cardápio</h1>
-
-    <div class="grid-cardapio">
-      <div class="card-produto-gourmet">
-        <img src="imagens/pudim.jpeg" alt="Pudim Tradicional" />
-        <div class="conteudo-produto">
-          <h3>Pudim Tradicional</h3>
-          <p class="descricao">Receita caseira com leite condensado e calda caramelizada.</p>
-          <div class="rodape-card">
-            <span class="preco">R$ 7,00</span>
-            <a href="sobremesas.html" class="botao-detalhes">Ver mais</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-produto-gourmet">
-        <img src="bolo88.jpeg" alt="Bolo de Festa" />
-        <div class="conteudo-produto">
-          <h3>Bolo de Festa</h3>
-          <p class="descricao">Bolo decorado com recheio duplo, ideal para aniversários e comemorações.</p>
-          <div class="rodape-card">
-            <span class="preco">R$ 40,00</span>
-            <a href="bolo-f.html" class="botao-detalhes">Ver mais</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-produto-gourmet">
-        <img src="imagens/torta.jpeg" alt="Torta de Vitrine" />
-        <div class="conteudo-produto">
-          <h3>Torta de Vitrine</h3>
-          <p class="descricao">Torta delicada com massa amanteigada e frutas frescas.</p>
-          <div class="rodape-card">
-            <span class="preco">R$ 25,00</span>
-            <a href="torta-v.html" class="botao-detalhes">Ver mais</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    const btn = document.getElemrntById('btnMenu');
-      const menu = document.getElementById('sideMenu');
-      const conteudo = document.getElementById('conteudo');
-      const navbar = document.querySelector('.navbar');
+    const btn = document.getElementById('btnMenu');
+    const menu = document.getElementById('sideMenu');
+    const wrapper = document.getElementById('wrapper');
 
-      btn.addEventListener('click', function() {
+    btn.addEventListener('click', () => {
       menu.classList.toggle('show');
-      conteudo.classList.toggle('shifted');
-      navbar.classList.toggle('shifted');
+      wrapper.classList.toggle('shifted');
     });
   </script>
 
