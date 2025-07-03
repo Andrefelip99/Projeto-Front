@@ -1,12 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nosso Cardápio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -16,115 +16,118 @@
 
     html, body {
       height: 100%;
+      min-height: 100vh;
       font-family: 'Playfair Display', serif;
       overflow-x: hidden;
+      color: white;
     }
 
     .background-img {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       background: url('tema.jpg') center center / cover no-repeat fixed;
       z-index: -2;
     }
 
     .overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       background-color: rgba(0,0,0,0.6);
       z-index: -1;
     }
 
+    nav.navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+      padding: 15px 20px;
+      background: transparent;
+      gap: 20px;
+    }
+
     .imagem-canto {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 65px;
       height: 65px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      z-index: 9999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      flex-shrink: 0;
     }
 
-    nav.navbar {
-      background-color: white;
-      z-index: 10;
-      position: relative;
+    .menu-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-grow: 1;
+    }
+
+    .menu-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .menu-links li a:hover {
+      color: #ff69b4;
     }
 
     .menu-hamburguer {
       display: none;
       font-size: 30px;
       cursor: pointer;
-      color: #333;
-      padding: 15px 20px;
-    }
-
-    .menu-links {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      list-style: none;
-      padding: 20px 0;
-      margin: 0;
-    }
-
-    .menu-links a {
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-      transition: color 0.3s ease;
-    }
-
-    .menu-links a:hover {
-      color: #ff69b4;
+      color: white;
+      user-select: none;
+      flex-shrink: 0;
+      z-index: 1010;
     }
 
     .conteudo {
       position: relative;
-      z-index: 1;
-      color: white;
+      z-index: 5;
       padding: 40px 20px;
       text-align: center;
       margin-bottom: 40px;
     }
 
     h1 {
-      margin-bottom: 40px;
       font-size: 64px;
-      color: white;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      background-image: url('https://i.imgur.com/FkUyZwT.png');
       background-repeat: no-repeat;
       background-position: center;
       background-size: 500px;
       padding: 60px 20px;
+      color: white;
     }
 
     .grid-cardapio {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
+      z-index: 5;
+      position: relative;
     }
 
     .card-produto-gourmet {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
       border-radius: 20px;
       overflow: hidden;
       backdrop-filter: blur(8px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       color: white;
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card-produto-gourmet:hover {
@@ -140,6 +143,10 @@
 
     .conteudo-produto {
       padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .conteudo-produto h3 {
@@ -152,6 +159,7 @@
       font-size: 0.95em;
       color: #eee;
       margin-bottom: 15px;
+      flex-grow: 1;
     }
 
     .rodape-card {
@@ -180,33 +188,49 @@
       background-color: #ff85c1;
     }
 
+    /* RESPONSIVO */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 36px;
-        padding: 30px 10px;
-        background-size: 300px;
+      nav.navbar {
+        justify-content: space-between;
+      }
+
+      .menu-links {
+        display: none;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: white;
+        padding: 20px 0;
+        gap: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+        flex-grow: 0;
+      }
+
+      .menu-links.show {
+        display: flex;
+      }
+
+      .menu-links li a {
+        color: #333;
+        font-size: 16px;
       }
 
       .menu-hamburguer {
         display: block;
       }
 
-      .menu-links {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: white;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        gap: 20px;
-        padding: 20px 0;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      .imagem-canto {
+        width: 50px;
+        height: 50px;
       }
 
-      .menu-links.show {
-        display: flex;
+      h1 {
+        font-size: 36px;
+        padding: 30px 10px;
+        background-size: 300px;
       }
 
       .grid-cardapio {
@@ -235,35 +259,30 @@
         padding: 6px 12px;
         font-size: 14px;
       }
-
-      .imagem-canto {
-        width: 50px;
-        height: 50px;
-      }
     }
   </style>
 </head>
-
 <body>
+
   <div class="background-img"></div>
   <div class="overlay"></div>
 
-  <img src="marca.png" alt="imagem arredondada" class="imagem-canto" />
-
   <nav class="navbar">
-    <div class="menu-hamburguer" onclick="toggleMenu()">☰</div>
-    <ul class="menu-links">
+    <img src="marca.png" alt="Logo arredondada" class="imagem-canto" />
+    <ul class="menu-links" id="menuLinks">
       <li><a href="index.html">Página Inicial</a></li>
       <li><a href="historia.html">Nossa História</a></li>
       <li><a href="contatos.html">Contatos</a></li>
       <li><a href="cat.html">Nosso Cardápio</a></li>
     </ul>
+    <div class="menu-hamburguer" onclick="toggleMenu()">☰</div>
   </nav>
 
   <div class="conteudo">
     <h1>Nosso Cardápio</h1>
 
     <div class="grid-cardapio">
+
       <div class="card-produto-gourmet">
         <img src="imagens/pudim.jpeg" alt="Pudim Tradicional" />
         <div class="conteudo-produto">
@@ -301,36 +320,4 @@
       </div>
 
       <div class="card-produto-gourmet">
-        <img src="imagens/browner.jpeg" alt="Brownie" />
-        <div class="conteudo-produto">
-          <h3>Brownie</h3>
-          <p class="descricao">Brownie de chocolate meio amargo com cobertura cremosa.</p>
-          <div class="rodape-card">
-            <span class="preco">R$ 6,00</span>
-            <a href="brownie.html" class="botao-detalhes">Ver mais</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-produto-gourmet">
-        <img src="slice.jpeg" alt="Slice Cake" />
-        <div class="conteudo-produto">
-          <h3>Slice Cake</h3>
-          <p class="descricao">Fatia de bolo artesanal com recheio especial e decoração gourmet.</p>
-          <div class="rodape-card">
-            <span class="preco">R$ 8,00</span>
-            <a href="slice-c.html" class="botao-detalhes">Ver mais</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.querySelector('.menu-links');
-      menu.classList.toggle('show');
-    }
-  </script>
-</body>
-</html>
+        <img src="imagens/browner.jpeg" alt="Brownie
