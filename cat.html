@@ -35,7 +35,6 @@
       z-index: 10;
       position: relative;
       background: transparent;
-      transition: transform 0.3s ease;
     }
 
     .menu-hamburguer {
@@ -96,6 +95,7 @@
       will-change: transform;
       position: relative;
       z-index: 1;
+      min-height: 100vh;
     }
 
     .wrapper.shifted {
@@ -112,15 +112,6 @@
       text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
       color: white;
     }
-    .sobre-container{
-      background-color: #fff8f0;
-      border-radius: 15px;
-      box-shadow:0 4px 20px rgba( 0, 0, 0, 0.6);
-      color: #4a2c2a;
-      padding: 30px;
-      width: 90%;
-      max-width: 0 auto;
-      text-align: center;}
 
     .grid-cardapio {
       max-width: 1200px;
@@ -171,6 +162,7 @@
       font-size: 0.95em;
       color: #eee;
       margin-bottom: 15px;
+      flex-grow: 1;
     }
 
     .rodape-card {
@@ -221,7 +213,6 @@
     </nav>
 
     <div class="conteudo" id="conteudo">
-      <div class="sobre-container">
       <h1>Nosso Cardápio</h1>
 
       <div class="grid-cardapio">
@@ -258,6 +249,30 @@
             <div class="rodape-card">
               <span class="preco">R$ 25,00</span>
               <a href="torta-v.html" class="botao-detalhes">Ver mais</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-produto-gourmet">
+          <img src="imagens/browner.jpeg" alt="Brownie" />
+          <div class="conteudo-produto">
+            <h3>Brownie</h3>
+            <p class="descricao">Brownie de chocolate meio amargo com cobertura cremosa.</p>
+            <div class="rodape-card">
+              <span class="preco">R$ 6,00</span>
+              <a href="brownie.html" class="botao-detalhes">Ver mais</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-produto-gourmet">
+          <img src="slice.jpeg" alt="Slice Cake" />
+          <div class="conteudo-produto">
+            <h3>Slice Cake</h3>
+            <p class="descricao">Fatia de bolo artesanal com recheio especial e decoração gourmet.</p>
+            <div class="rodape-card">
+              <span class="preco">R$ 8,00</span>
+              <a href="slice-c.html" class="botao-detalhes">Ver mais</a>
             </div>
           </div>
         </div>
