@@ -2,269 +2,230 @@
 <html lang="pt-br">
 <head>
 
-    <img src="marca.png" alt="imagem arredondada" class="imagem-canto">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Nosso Cardápio</title>
     
     
     <style>
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        html, body {
-            height: 100%;
-            font-family: 'Playfair Display',serif;
-        }
+    html, body {
+      height: 100%;
+      font-family:'Playfair Display', serif;
+      background-image: url('tema.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-        body {
-            background-image: url('tema.jpg');  
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
+    .imagem-canto {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
 
-        .conteudo {
-            position: relative;
-            z-index: 1;
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      position: relative;
+      z-index: 10;
+    }
 
-        h1 {
-            margin-bottom: 30px;
-            font-size: 64px;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0);
-            background-image: url('https://i.imgur.com/FkUyZwT.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 500px;
-            padding: 60px 20px;
-            margin-bottom: 40px;
-        }
+    .menu-hamburguer {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      z-index: 3000;
+    }
 
-        .imagem-bolo{
-           width: 100%;
-           height: auto;
-           max-width: 300px;
-           border-radius: 10px;
-           object-fit: cover;
-           margin-top: 20px;
-        }
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: white;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+      padding-top: 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: left 0.3s ease;
+      z-index: 1500;
+    }
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
+    .side-menu.show {
+      left: 0;
+    }
 
-        .container h2 {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            color: white;
+    .side-menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: background 0.3s ease;
+    }
 
-        }
+    .side-menu a:hover {
+      background-color: #ff69b4;
+      color: white;
+    }
 
-        .navbar {
-    background-color: white;
-    padding: 20px 0;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
+    .btn-fechar {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      z-index: 2000;
+      transition: color 0.2s ease;
+    }
 
-
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar li {
-    display: inline;
-}
-
-.navbar a {
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-    color: #ff69b4; /* rosa claro - você pode mudar a cor */
-}
-
-.imagem-canto{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 10000;
-
-}
+    .btn-fechar:hover {
+      color: #ff69b4;
+    }
 
 
-.sobre-container{
-    width: 50%;
-    margin: 90px auto 90px auto;
-    padding: 50px;
-    background-color: #fff8f0;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px  rgba(0,0,0,0,0.1);
-    font-size: 18px;
-    text-align: center;
-    color:#4a2c2a;
-    position: relative;
-    z-index: 10;
-   
-}
 
-.sobre-container h3 {
-    margin: 0 auto ;
-    font-size: 50px;
-    margin-bottom: 14px;
-    color: #d48806;
-    margin-top: -20px;
-    
-}
+    h1 {
+      font-size: 64px;
+      text-align: center;
+      padding: 60px 20px;
+      background-image: url('https://i.imgur.com/FkUyZwT.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 500px;
+    }
 
-.carrossel {
-  position: relative;
-  width: 350px;
-  height: 350px;
-  margin: 50px auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
+    .imagem-bolo {
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-top: 20px;
+    }
 
-.carrossel-imagens {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.4s ease-in-out;
-}
+    .sobre-container {
+      width: 90%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 50px;
+      background-color: #fff8f0;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      font-size: 18px;
+      text-align: center;
+      color: #4a2c2a;
+      position: relative;
+      z-index: 10;
+    }
 
-.carrossel-imagens img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
+    .sobre-container h3 {
+      font-size: 50px;
+      color: #d48806;
+      margin-bottom: 14px;
+    }
 
-.carrossel button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255,255,255,0.7);
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 2;
-}
+    .carrossel {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
 
-.anterior {
-  left: 10px;
-}
+    .carrossel-imagens {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease-in-out;
+    }
 
-.proximo {
-  right: 10px;
-}
+    .carrossel-imagens img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
 
-.text h2 {
-    margin-top: -30px;
-    position: relative;
-    color: #333;
-    z-index: 3;
-    right: auto;
+    .carrossel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255,255,255,0.7);
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 2;
+    }
 
-}
-.text {
+    .anterior {
+      left: 10px;
+    }
 
-    margin-top: -30px;
-    position: relative;
-    color: #333;
-    z-index: 3;
-    right:auto
+    .proximo {
+      right: 10px;
+    }
 
+    .text {
+      margin-top: 20px;
+      color: #333;
+    }
 
-}
-  @media (max-width: 600px) {
-      html, body {
-        font-size: 14px;
-      }
+    .text h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
 
+    .botao-detalhes {
+      background-color: #ff69b4;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s ease;
+      margin-top: 5%;
+    }
+
+    @media (max-width: 600px) {
       h1 {
         font-size: 36px;
         padding: 30px 10px;
         background-size: 300px;
       }
 
-      .navbar ul {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .navbar a {
-        font-size: 16px;
-      }
-
-      .grid-cardapio {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-      }
-
-      .card-produto-gourmet img {
-        height: 150px;
-      }
-
-      .conteudo {
-        padding: 20px 10px;
-      }
-
-      .conteudo-produto h3 {
-        font-size: 22px;
-      }
-
-      .descricao {
-        font-size: 0.9em;
-      }
-
-      .botao-detalhes {
-        padding: 6px 12px;
-        font-size: 14px;
+      .carrossel {
+        width: 90%;
+        height: auto;
       }
 
       .imagem-canto {
@@ -272,26 +233,35 @@
         height: 50px;
       }
 
-      a {
-        text-decoration: none;
+      .sobre-container h3 {
+        font-size: 32px;
       }
     }
   </style>
 </head>
 <body>
 
+  <body>
   <div class="overlay"></div>
 
-    <nav class="navbar">
-    <ul>
-        <li><a href="index.html">Página Inicial</a></li>
-        <li><a href="historia.html">Nossa História</a></li>
-        <li><a href="contatos.html">Contatos</a></li>
-        <li><a href="cat.html">Nosso Cardapio</a></li>
-        
+  
+  <nav class="navbar">
+    <div class="menu-hamburguer" id="btnMenu">☰</div>
+    <img src="marca.png" alt="Logo" class="imagem-canto" />
+  </nav>
+
+  <nav class="side-menu" id="sideMenu">
+    <div class="btn-fechar" id="btnFechar">×</div>
+    <a href="index.html">Página Inicial</a>
+    <a href="historia.html">Nossa História</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="cat.html">Nosso Cardápio</a>
+  </nav>
+         
         
     </ul>
 </nav>
+
     <div class="sobre-container">
         <h3>Slice Cake</h3>
 
@@ -320,25 +290,47 @@
          <div class="text">
         <h2>R$9.99</h2>
         <p>Uma fatia, mil motivos pra sorrir! Nossa Slice Cake é a dose perfeita de felicidade:
-             massas leves, recheios cremosos e aquele sabor que conquista no primeiro garfo.
-              Ideal pra adoçar o dia sem precisar de data especial. Escolha seu sabor favorito e viva essa experiência deliciosa, uma fatia por vez.</p> 
-     </div>
-         
-         
-    
+           massas leves, recheios cremosos e aquele sabor que conquista no primeiro garfo.</p>
+
+   <a href="https://api.whatsapp.com/send?phone=5521982591226&text=Ol%C3%A1+Bruna%2C+vim+atrav%C3%A9s+do+instagram+e+gostaria+de+obter+mais+informa%C3%A7%C3%B5es+sobre+o+seu+card%C3%A1pio+%F0%9F%98%83" 
+        class="botao-detalhes"
+        target="_blank">
+        Fazer Pedido
+      </a>
+    </div>
+
     </div>
   <script>
-  const carrossel = document.querySelector('.carrossel-imagens');
-  const imagens = document.querySelectorAll('.carrossel-imagens img');
-  let index = 0;
+    
+    const btn = document.getElementById('btnMenu');
+    const menu = document.getElementById('sideMenu');
+    const wrapper = document.getElementById('wrapper');
+    const btnFechar = document.getElementById('btnFechar');
 
-  document.querySelector('.proximo').addEventListener('click', () => {
-    index = (index + 1) % imagens.length;
-    carrossel.style.transform = `translateX(-${index * 100}%)`;
-  });
+    btnFechar.addEventListener('click', () => {
+      menu.classList.remove('show');
+      wrapper.classList.remove('shifted');
+    });
 
-  document.querySelector('.anterior').addEventListener('click', () => {
-    index = (index - 1 + imagens.length) % imagens.length;
-    carrossel.style.transform = `translateX(-${index * 100}%)`;
-  });
-</script>
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+      wrapper.classList.toggle('shifted');
+    });
+
+   
+    const carrossel = document.querySelector('.carrossel-imagens');
+    const imagens = document.querySelectorAll('.carrossel-imagens img');
+    let index = 0;
+
+    document.querySelector('.proximo').addEventListener('click', () => {
+      index = (index + 1) % imagens.length;
+      carrossel.style.transform = `translateX(-${index * 100}%)`;
+    });
+
+    document.querySelector('.anterior').addEventListener('click', () => {
+      index = (index - 1 + imagens.length) % imagens.length;
+      carrossel.style.transform = `translateX(-${index * 100}%)`;
+    });
+  </script>
+</body>
+</html>
