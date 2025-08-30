@@ -2,192 +2,203 @@
 <html lang="pt-br">
 <head>
 
-    <img src="marca.png" alt="imagem arredondada" class="imagem-canto">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Nosso Cardápio</title>
-    
-    
+    <title>Nossa Historia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+   
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        html, body {
-            height: 100%;
-            font-family: 'Playfair Display',serif;
-        }
+    html, body {
+      height: 100%;
+      font-family: 'Playfair Display', serif;
+      background: url('tema.jpg') center/cover fixed no-repeat;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-        body {
-            background-image: url('tema.jpg');  
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+      pointer-events: none;
+    }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
+    .imagem-canto {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
 
-        .conteudo {
-            position: relative;
-            z-index: 1;
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      position: relative;
+      z-index: 10;
+    }
 
-        h1 {
-            margin-bottom: 30px;
-            font-size: 64px;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0);
-            background-image: url('https://i.imgur.com/FkUyZwT.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 500px;
-            padding: 60px 20px;
-            margin-bottom: 40px;
-        }
+    .menu-hamburguer {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      z-index: 3000;
+    }
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: white;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+      padding-top: 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: left 0.3s ease;
+      z-index: 1500;
+    }
 
-        .container h2 {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            color: white;
+    .side-menu.show {
+      left: 0;
+    }
 
-        }
+    .side-menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: background 0.3s ease;
+    }
 
-        .navbar {
-    background-color: white;
-    padding: 20px 0;
-    text-align: center;
-    position: relative;
-    z-index: 2;
+    .side-menu a:hover {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+  
+
+    .wrapper.shifted {
+      transform: translateX(250px);
+    }
+    
+    .btn-fechar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  z-index: 2000;
+  transition: color 0.2s ease;
 }
 
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin: 0;
-    padding: 0;
+.btn-fechar:hover {
+  color: #ff69b4;
 }
+    .sobre-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff8f0;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      text-align: center;
+      color: #4a2c2a;
+      z-index: 1;
+      position: relative;
+     
+    
+    }
 
-.navbar li {
-    display: inline;
-}
+    .sobre-container h1 {
+      font-size: 64px;
+      margin-bottom: 40px;
+      color: #d48806;
+      font-family: 'Dancing Script', cursive;
+      
+    }
 
-.navbar a {
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    transition: color 0.3s ease;
-}
 
-.navbar a:hover {
-    color: #ff69b4; /* rosa claro - você pode mudar a cor */
-}
+    
 
-.imagem-canto{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(0, 0g, 0, 0.3);
-    z-index: 9999;
 
-}
-  @media (max-width: 600px) {
-      html, body {
-        font-size: 14px;
-      }
+  
 
-      h1 {
+    @media (max-width: 600px) {
+      .sobre-container h1 {
         font-size: 36px;
-        padding: 30px 10px;
-        background-size: 300px;
-      }
-
-      .navbar ul {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .navbar a {
-        font-size: 16px;
       }
 
       .grid-cardapio {
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-      }
-
-      .card-produto-gourmet img {
-        height: 150px;
-      }
-
-      .conteudo {
-        padding: 20px 10px;
-      }
-
-      .conteudo-produto h3 {
-        font-size: 22px;
-      }
-
-      .descricao {
-        font-size: 0.9em;
-      }
-
-      .botao-detalhes {
-        padding: 6px 12px;
-        font-size: 14px;
       }
 
       .imagem-canto {
         width: 50px;
         height: 50px;
       }
-
-      a {
-        text-decoration: none;
-      }
     }
   </style>
 </head>
 <body>
 
-    <div class="overlay"></div>
+  <div class="overlay"></div>
 
-    <nav class="navbar">
-    <ul>
-        <li><a href="index.html">Página Inicial</a></li>
-        <li><a href="historia.html">Nossa História</a></li>
-        <li><a href="contatos.html">Contatos</a></li>
-        <li><a href="cat.html">Nosso Cardapio</a></li>
-        
-        
-    </ul>
-</nav>
+  <nav class="navbar">
+    <div class="menu-hamburguer" id="btnMenu">☰</div>
+    <img src="marca.png" alt="Logo" class="imagem-canto" />
+  </nav>
+
+  <nav class="side-menu" id="sideMenu">
+    <div class="btn-fechar" id="btnFechar">×</div>
+    <a href="index.html">Página Inicial</a>
+    <a href="historia.html">Nossa História</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="cat.html">Nosso Cardápio</a>
+  </nav>
+
+  <div class="wrapper" id="wrapper">
+    <div class="sobre-container">
+      <h1>Nossa História</h1>
+
+    
+
+  <script>
+    const btn = document.getElementById('btnMenu');
+    const menu = document.getElementById('sideMenu');
+    const wrapper = document.getElementById('wrapper');
+    const btnFechar = document.getElementById('btnFechar');
+
+btnFechar.addEventListener('click', () => {
+  menu.classList.remove('show');
+  wrapper.classList.remove('shifted');
+});
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+      wrapper.classList.toggle('shifted');
+    });
+  </script>
+
+</body>
+</html>
