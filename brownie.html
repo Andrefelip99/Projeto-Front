@@ -2,11 +2,9 @@
 <html lang="pt-br">
 <head>
 
-    <img src="marca.png" alt="imagem arredondada" class="imagem-canto">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Nosso Cardápio</title>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
     
     <style>
         
@@ -18,7 +16,7 @@
 
         html, body {
             height: 100%;
-            font-family: 'Playfair Display',serif;
+            font-family: 'Playfair Display', serif;
         }
 
         body {
@@ -27,7 +25,6 @@
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            
         }
 
         .overlay {
@@ -48,289 +45,308 @@
             text-align: center;
         }
 
-        h1 {
-            margin-bottom: 30px;
-            font-size: 64px;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0);
-            background-image: url('https://i.imgur.com/FkUyZwT.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 500px;
-            padding: 60px 20px;
-            margin-bottom: 40px;
-        }
-
-        .imagem-bolo{
-           width: 100%;
-           height: auto;
-           max-width: 300px;
-           border-radius: 10px;
-           object-fit: cover;
-           margin-top: 20px;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .container h2 {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            color: white;
-
-        }
-
+       
         .navbar {
-    background-color: white;
-    padding: 20px 0;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: transparent;
+            box-shadow: none;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+        }
 
+        .menu-hamburguer {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            user-select: none;
+            z-index: 10001;
+        }
 
+        .imagem-canto {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 10001;
+        }
 
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin: 0;
-    padding: 0;
-}
+       
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+            padding-top: 70px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: left 0.3s ease;
+            z-index: 9999;
+        }
 
-.navbar li {
-    display: inline;
-}
+        .side-menu.show {
+            left: 0;
+        }
 
-.navbar a {
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    transition: color 0.3s ease;
-}
+        .side-menu a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 10px 20px;
+            transition: background 0.3s ease;
+        }
 
-.navbar a:hover {
-    color: #ff69b4; /* rosa claro - você pode mudar a cor */
-}
+        .side-menu a:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
 
-.imagem-canto{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 10000;
+        .btn-fechar {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            z-index: 2001;
+            transition: color 0.2s ease, background-color 0.2s ease;
+            user-select: none;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
 
-}
+        .btn-fechar:hover {
+            color: #ff69b4;
+            background-color: rgba(255, 105, 180, 0.2);
+        }
 
+        /* Conteúdo principal */
+        .sobre-container {
+            width: 50%;
+            margin: 120px auto 90px auto;
+            padding: 50px;
+            background-color: #fff8f0;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            font-size: 18px;
+            text-align: center;
+            color:#4a2c2a;
+            position: relative;
+            z-index: 10;
+        }
 
-.sobre-container{
-    width: 50%;
-    margin: 90px auto 90px auto;
-    padding: 50px;
-    background-color: #fff8f0;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px  rgba(0,0,0,0,0.1);
-    font-size: 18px;
-    text-align: center;
-    color:#4a2c2a;
-    position: relative;
-    z-index: 10;
-   
-}
+        .sobre-container h3 {
+            margin: 0 auto ;
+            font-size: 50px;
+            margin-bottom: 14px;
+            color: #d48806;
+            margin-top: -20px;
+        }
 
-.sobre-container h3 {
-    margin: 0 auto ;
-    font-size: 50px;
-    margin-bottom: 14px;
-    color: #d48806;
-    margin-top: -20px;
-    
-}
+        .carrossel {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
 
-.carrossel {
-  position: relative;
-  width: 350px;
-  height: 350px;
-  margin: 50px auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
+        .carrossel-imagens {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s ease-in-out;
+        }
 
-.carrossel-imagens {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.4s ease-in-out;
-}
+        .carrossel-imagens img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
 
-.carrossel-imagens img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
+        .carrossel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.7);
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 2;
+        }
 
-.carrossel button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255,255,255,0.7);
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 2;
-}
+        .anterior {
+            left: 10px;
+        }
 
-.anterior {
-  left: 10px;
-}
+        .proximo {
+            right: 10px;
+        }
 
-.proximo {
-  right: 10px;
-}
+        .text h2 {
+            margin-top: -30px;
+            position: relative;
+            color: #333;
+            z-index: 3;
+            right: auto;
+        }
 
-.text h2 {
-    margin-top: -30px;
-    position: relative;
-    color: #333;
-    z-index: 3;
-    right: auto;
+        .text {
+            margin-top: -30px;
+            position: relative;
+            color: #333;
+            z-index: 3;
+            right:auto;
+        }
 
-}
-.text {
-
-    margin-top: -30px;
-    position: relative;
-    color: #333;
-    z-index: 3;
-    right:auto
-
-
-}
-  @media (max-width: 600px) {
-      html, body {
-        font-size: 14px;
-      }
-
-      h1 {
-        font-size: 36px;
-        padding: 30px 10px;
-        background-size: 300px;
-      }
-
-      .navbar ul {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .navbar a {
-        font-size: 16px;
-      }
-
-      .grid-cardapio {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-      }
-
-      .card-produto-gourmet img {
-        height: 150px;
-      }
-
-      .conteudo {
-        padding: 20px 10px;
-      }
-
-      .conteudo-produto h3 {
-        font-size: 22px;
-      }
-
-      .descricao {
-        font-size: 0.9em;
-      }
-
-      .botao-detalhes {
-        padding: 6px 12px;
-        font-size: 14px;
-      }
-
-      .imagem-canto {
-        width: 50px;
-        height: 50px;
-      }
-
-      a {
-        text-decoration: none;
-      }
+        .botao-detalhes {
+            background-color: #ff69b4;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s ease;
+            margin-top: 5%;
     }
-  </style>
+
+        @media (max-width: 600px) {
+            html, body {
+                font-size: 14px;
+            }
+
+            .sobre-container {
+                width: 90%;
+                margin: 120px auto 80px auto;
+                padding: 20px;
+            }
+
+            .carrossel {
+                width: 100%;
+                height: 250px;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 
   <div class="overlay"></div>
 
-    <nav class="navbar">
-    <ul>
-        <li><a href="index.html">Página Inicial</a></li>
-        <li><a href="historia.html">Nossa História</a></li>
-        <li><a href="contatos.html">Contatos</a></li>
-        <li><a href="cat.html">Nosso Cardapio</a></li>
-        
-        
-    </ul>
-</nav>
-    <div class="sobre-container">
-        <h3>Brownie</h3>
 
-    
-    <div class="carrossel">
-        <button class="anterior">&#10094;</button>
-         <div class="carrossel-imagens">
-            <img src=  "imagens/browner.jpeg" alt="foto 1">
-         
+  <nav class="navbar">
+    <div class="menu-hamburguer" id="btnMenu" role="button" tabindex="0" aria-label="Abrir menu">☰</div>
+    <img src="marca.png" alt="imagem arredondada" class="imagem-canto" />
+  </nav>
 
-           
-         </div>
+ 
+  <nav class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="btn-fechar" id="btnFechar" role="button" tabindex="0" aria-label="Fechar menu">×</div>
+    <a href="index.html">Página Inicial</a>
+    <a href="historia.html">Nossa História</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="cat.html">Nosso Cardápio</a>
+  </nav>
+
+  <div class="sobre-container">
+      <h3>Brownie</h3>
+
+      <div class="carrossel">
+          <button class="anterior">&#10094;</button>
+          <div class="carrossel-imagens">
+              <img src="imagens/browner.jpeg" alt="foto 1">
+          </div>
           <button class="proximo">&#10095;</button>
-    </div>
+      </div>
 
-         <div class="text">
-        <h2>R$3.99</h2>
-        <p>
-        Crocante por fora, macio por dentro e com aquele sabor intenso de chocolate que não brinca em serviço. 
-        Perfeito pra acompanhar um café, um carinho ou só matar a vontade de um doce de respeito. 
-        Dá vontade de guardar... mas é impossível dividir.</p> 
-     </div>
-         
-         
+      <div class="text">
+          <h2>R$3.99</h2>
+          <p>
+              Crocante por fora, macio por dentro e com aquele sabor intenso de chocolate que não brinca em serviço. 
+              Perfeito pra acompanhar um café, um carinho ou só matar a vontade de um doce de respeito. 
+              Dá vontade de guardar... mas é impossível dividir.
+          </p> 
+
     
-    </div>
+        <a href="https://api.whatsapp.com/send?phone=5521982591226&text=Ol%C3%A1+Bruna%2C+vim+atrav%C3%A9s+do+instagram+e+gostaria+de+obter+mais+informa%C3%A7%C3%B5es+sobre+o+seu+card%C3%A1pio+%F0%9F%98%83" 
+        class="botao-detalhes"
+        target="_blank">
+        Fazer Pedido
+</a>
+      </div>
+  </div>
+
   <script>
-  const carrossel = document.querySelector('.carrossel-imagens');
-  const imagens = document.querySelectorAll('.carrossel-imagens img');
-  let index = 0;
+    
+    const btn = document.getElementById('btnMenu');
+    const menu = document.getElementById('sideMenu');
+    const btnFechar = document.getElementById('btnFechar');
 
-  document.querySelector('.proximo').addEventListener('click', () => {
-    index = (index + 1) % imagens.length;
-    carrossel.style.transform = `translateX(-${index * 100}%)`;
-  });
+    function toggleMenu() {
+      menu.classList.toggle('show');
+      const isShown = menu.classList.contains('show');
+      menu.setAttribute('aria-hidden', isShown ? 'false' : 'true');
+    }
 
-  document.querySelector('.anterior').addEventListener('click', () => {
-    index = (index - 1 + imagens.length) % imagens.length;
-    carrossel.style.transform = `translateX(-${index * 100}%)`;
-  });
-</script>
+    btn.addEventListener('click', toggleMenu);
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        toggleMenu();
+        e.preventDefault();
+      }
+    });
+
+    btnFechar.addEventListener('click', () => {
+      menu.classList.remove('show');
+      menu.setAttribute('aria-hidden', 'true');
+    });
+    btnFechar.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        menu.classList.remove('show');
+        menu.setAttribute('aria-hidden', 'true');
+        e.preventDefault();
+      }
+    });
+
+   
+    const carrossel = document.querySelector('.carrossel-imagens');
+    const imagens = document.querySelectorAll('.carrossel-imagens img');
+    let index = 0;
+
+    document.querySelector('.proximo').addEventListener('click', () => {
+      index = (index + 1) % imagens.length;
+      carrossel.style.transform = `translateX(-${index * 100}%)`;
+    });
+
+    document.querySelector('.anterior').addEventListener('click', () => {
+      index = (index - 1 + imagens.length) % imagens.length;
+      carrossel.style.transform = `translateX(-${index * 100}%)`;
+    });
+  </script>
+
+</body>
+</html>
