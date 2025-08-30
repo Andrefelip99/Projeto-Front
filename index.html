@@ -4,53 +4,247 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <meta charset="UTF-8"/>
     <title>SITE DE BOLOS DA BRUNA</title>
-    <link rel="stylesheet"  href="style.css"/>
- </head>
- <body>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+
+  <style>
 
     
-
-    <img src="marca.png" alt="imagem arredondada" class="imagem-canto">
-           <nav class="navbar">
-    <ul>
-        <li><a href="index.html">Página Inicial</a></li>
-        <li><a href="historia.html">Nossa História</a></li>
-        <li><a href="contatos.html">Contatos</a></li>
-        <li><a href="cat.html">Nosso Catálogo</a></li>
-        
-        
-    </ul>
-</nav>
+    h1, h2{
+        color: white;
+    }
 
 
 
-   <div class="overlay">
+
+.sobre-container{
+    width: 80%;
+    margin: 100px auto 100px auto;
+    padding: 30px;
+    background-color: #fff8f0;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    text-align: center;
+    color:#4a2c2a;
+    position: relative;
+    z-index: 10;
+   
+}
+
+.sobre-container h3 {
+    margin: 0 auto ;
+    font-size: 30px;
+    margin-bottom: 14px;
+    color: #d48806;
+
+   
+
+}
+
+
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Playfair Display', serif;
+      background: url('tema.jpg') center/cover fixed no-repeat;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .imagem-canto {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .menu-hamburguer {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      z-index: 3000;
+    }
+
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: white;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+      padding-top: 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: left 0.3s ease;
+      z-index: 1500;
+    }
+
+    .side-menu.show {
+      left: 0;
+    }
+
+    .side-menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: background 0.3s ease;
+    }
+
+    .side-menu a:hover {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+
     
-   </div>
-    
-    
+  .imagem-arredondada {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 20px auto 0; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
+  
     
-    </div>
-   <div class="sobre-container" >
-    <h3>Bem-Vindos ao Macedo Farias Doceria</h3>
-    <p>
+    .btn-fechar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  z-index: 2000;
+  transition: color 0.2s ease;
+}
+
+.btn-fechar:hover {
+  color: #ff69b4;
+}
+    .sobre-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff8f0;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      text-align: center;
+      color: #4a2c2a;
+      z-index: 1;
+      position: relative;
+     
+    
+    }
+
+    .sobre-container h1 {
+      font-size: 64px;
+      margin-bottom: 40px;
+      color: #d48806;
+      font-family: 'Dancing Script', cursive;
+      
+    }
+
+
+    @media (max-width: 600px) {
+      .sobre-container h1 {
+        font-size: 36px;
+      }
+
+      .grid-cardapio {
+        grid-template-columns: 1fr;
+      }
+
+      .imagem-canto {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <nav class="navbar">
+    <div class="menu-hamburguer" id="btnMenu">☰</div>
+    <img src="marca.png" alt="Logo" class="imagem-canto" />
+  </nav>
+
+  <nav class="side-menu" id="sideMenu">
+    <div class="btn-fechar" id="btnFechar">×</div>
+    <a href="index.html">Página Inicial</a>
+    <a href="historia.html">Nossa História</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="cat.html">Nosso Cardápio</a>
+  </nav>
+
+ 
+
+
+  <div class="sobre-container" >
+  <h3>Bem-Vindos ao Macedo Farias Doceria</h3>
+  <p>
       Se você curte sabor de verdade e aquele gostinho que fica na memória, está no lugar certo. 
       Aqui na Macedo Farias Doceria, cada doce é feito para surpreender e deixar você querendo mais.
       Com qualidade e muito amor em cada receita, entregamos não só um produto, mas uma experiência que transforma momentos simples em lembranças especiais.
+ </p>
 
+   <img src="logo-da-marca.png" alt="imagem-arredondada" class="imagem-arredondada">
 
-
-      
-    </p>
     
-    <img src="logo-da-marca.png" alt="imagem arredondada" >
 
-    <p>
-      Fique por dentro das nossas novodades...
-    </p>
-   </div>
-   
- </body>
+  <script>
+    const btn = document.getElementById('btnMenu');
+    const menu = document.getElementById('sideMenu');
+    const wrapper = document.getElementById('wrapper');
+    const btnFechar = document.getElementById('btnFechar');
+
+btnFechar.addEventListener('click', () => {
+  menu.classList.remove('show');
+  wrapper.classList.remove('shifted');
+});
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+      wrapper.classList.toggle('shifted');
+    });
+  </script>
+
+</body>
 </html>
-
