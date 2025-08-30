@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
-    <img src="marca.png" alt="imagem arredondada" class="imagem-canto">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Nosso Cardápio</title>
@@ -22,7 +20,7 @@
         }
 
         body {
-            background-image: url('tema.jpg');  
+            background-image: url('tema.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -60,12 +58,12 @@
         }
 
         .imagem-bolo{
-           width: 100%;
-           height: auto;
-           max-width: 300px;
-           border-radius: 10px;
-           object-fit: cover;
-           margin-top: 20px;
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-top: 20px;
         }
 
         .container {
@@ -85,7 +83,7 @@
 
         .navbar {
     background-color: white;
-    padding: 20px 0;
+    padding: 21px 0;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -115,11 +113,11 @@
 }
 
 .navbar a:hover {
-    color: #ff69b4; /* rosa claro - você pode mudar a cor */
+    color: #ff69b4;
 }
 
 .imagem-canto{
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -145,7 +143,7 @@
     color:#4a2c2a;
     position: relative;
     z-index: 10;
-   
+
 }
 
 .sobre-container h3 {
@@ -193,6 +191,18 @@
   z-index: 2;
 }
 
+  .botao-detalhes {
+      background-color: #ff69b4;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s ease;
+      margin-top: 5%;
+    }
+
 .anterior {
   left: 10px;
 }
@@ -209,6 +219,13 @@
     right: auto;
 
 }
+
+.text p{
+  
+  margin-top: 10px;
+
+}
+
 .text {
 
     margin-top: -30px;
@@ -219,6 +236,7 @@
 
 
 }
+
   @media (max-width: 600px) {
       html, body {
         font-size: 14px;
@@ -287,6 +305,8 @@
         <li><a href="historia.html">Nossa História</a></li>
         <li><a href="contatos.html">Contatos</a></li>
         <li><a href="cat.html">Nosso Cardapio</a></li>
+
+          <img src="marca.png" alt="imagem arredondada" class="imagem-canto" />
         
         
     </ul>
@@ -297,22 +317,23 @@
     
     <div class="carrossel">
         <button class="anterior">&#10094;</button>
-         <div class="carrossel-imagens">
+          <div class="carrossel-imagens">
             <img src=  "imagens/pudim-2.jpeg" alt="foto 1">
             <img src="imagens/pudim-2.jpeg" alt="foto 2">
-           
-           
-         </div>
+            </div>
           <button class="proximo">&#10095;</button>
     </div>
-
-         <div class="text">
+    <div class="text">
         <h2>R$29.99</h2>
-        <p>Toda refeição merece um final feliz. Nossas sobremesas foram feitas pra encantar: do clássico pudim ao toque criativo das receitas da casa.
-             Texturas, aromas e sabores que despertam memórias e criam sorrisos. Escolha a sua e sinta o doce poder do “só mais um pedacinho.</p> 
-     </div>
-         
-         
+        <p>Toda refeição merece um final feliz. Nossas sobremesas foram feitas pra encantar: do clássico pudim ao toque criativo das receitas da casa. Texturas, aromas e sabores que despertam memórias e criam sorrisos. Escolha a sua e sinta o doce poder do “só mais um pedacinho.</p> 
+
+                <a href="https://api.whatsapp.com/send?phone=5521982591226&text=Ol%C3%A1+Bruna%2C+vim+atrav%C3%A9s+do+instagram+e+gostaria+de+obter+mais+informa%C3%A7%C3%B5es+sobre+o+seu+card%C3%A1pio+%F0%9F%98%83" 
+        class="botao-detalhes"
+        target="_blank">
+        Fazer Pedido
+      </a>
+  </div>
+
     
     </div>
   <script>
