@@ -1,50 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <meta charset="UTF-8"/>
-    <title>SITE DE BOLOS DA BRUNA</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SITE DE BOLOS DA BRUNA</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-
   <style>
-
-    
-    h1, h2{
-        color: white;
-    }
-
-
-
-
-.sobre-container{
-    width: 80%;
-    margin: 100px auto 100px auto;
-    padding: 30px;
-    background-color: #fff8f0;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-    font-size: 18px;
-    text-align: center;
-    color:#4a2c2a;
-    position: relative;
-    z-index: 10;
-   
-}
-
-.sobre-container h3 {
-    margin: 0 auto ;
-    font-size: 30px;
-    margin-bottom: 14px;
-    color: #d48806;
-
-   
-
-}
-
-
-   * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -56,6 +21,10 @@
       background: url('tema.jpg') center/cover fixed no-repeat;
       overflow-x: hidden;
       position: relative;
+    }
+
+    h1, h2 {
+      color: white;
     }
 
     .overlay {
@@ -127,35 +96,22 @@
       color: white;
     }
 
-
-    
-  .imagem-arredondada {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 20px auto 0; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-  
-    
     .btn-fechar {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  z-index: 2000;
-  transition: color 0.2s ease;
-}
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      z-index: 2000;
+      transition: color 0.2s ease;
+    }
 
-.btn-fechar:hover {
-  color: #ff69b4;
-}
+    .btn-fechar:hover {
+      color: #ff69b4;
+    }
+
     .sobre-container {
       width: 90%;
       max-width: 1200px;
@@ -168,8 +124,6 @@
       color: #4a2c2a;
       z-index: 1;
       position: relative;
-     
-    
     }
 
     .sobre-container h1 {
@@ -177,28 +131,134 @@
       margin-bottom: 40px;
       color: #d48806;
       font-family: 'Dancing Script', cursive;
-      
     }
 
-
-    @media (max-width: 600px) {
-      .sobre-container h1 {
-        font-size: 36px;
-      }
-
-      .grid-cardapio {
-        grid-template-columns: 1fr;
-      }
-
-      .imagem-canto {
-        width: 50px;
-        height: 50px;
-      }
+    .sobre-container h3 {
+      margin: 0 auto;
+      font-size: 30px;
+      margin-bottom: 14px;
+      color: #d48806;
     }
+
+    .imagem-arredondada {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 20px auto 0; 
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* GRID DO CARDÁPIO */
+    .grid-cardapio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card-produto-gourmet {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      color: #d48806;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-produto-gourmet:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    }
+
+    .card-produto-gourmet img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .conteudo-produto {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .conteudo-produto h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .descricao {
+      font-size: 0.95em;
+      color: black;
+      margin-bottom: 15px;
+    }
+
+    .rodape-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .preco {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #d48806;
+    }
+
+    .botao-detalhes {
+      background-color: #ff69b4;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .botao-detalhes:hover {
+      background-color: #ff85c1;
+    }
+
+  @media (max-width: 600px) {
+  .grid-cardapio {
+    grid-template-columns: 1fr; /* cada card ocupa 100% da tela */
+    gap: 15px;
+  }
+
+  .card-produto-gourmet {
+    max-width: 100%;
+    padding: 10px; /* diminui o espaçamento interno */
+  }
+
+  .card-produto-gourmet img {
+    height: 150px; /* reduz a altura da imagem */
+  }
+
+  .conteudo-produto h3 {
+    font-size: 20px; /* menor título */
+  }
+
+  .descricao {
+    font-size: 14px;
+  }
+
+  .botao-detalhes {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+    
   </style>
 </head>
 <body>
-
   <div class="overlay"></div>
 
   <nav class="navbar">
@@ -211,23 +271,85 @@
     <a href="index.html">Página Inicial</a>
     <a href="historia.html">Nossa História</a>
     <a href="contatos.html">Contatos</a>
-    <a href="cat.html">Nosso Cardápio</a>
+    
   </nav>
 
  
-
-
-  <div class="sobre-container" >
-  <h3>Bem-Vindos ao Macedo Farias Doceria</h3>
-  <p>
+  <div class="sobre-container">
+    <h3>Bem-Vindos ao Macedo Farias Doceria</h3>
+    <p>
       Se você curte sabor de verdade e aquele gostinho que fica na memória, está no lugar certo. 
       Aqui na Macedo Farias Doceria, cada doce é feito para surpreender e deixar você querendo mais.
       Com qualidade e muito amor em cada receita, entregamos não só um produto, mas uma experiência que transforma momentos simples em lembranças especiais.
- </p>
+    </p>
+    <img src="logo-da-marca.png" alt="imagem-arredondada" class="imagem-arredondada">
+  </div>
 
-   <img src="logo-da-marca.png" alt="imagem-arredondada" class="imagem-arredondada">
-
+  <!-- QUADRO DE VARIEDADES -->
+  
     
+    <div class="grid-cardapio">
+      <div class="card-produto-gourmet">
+        <img src="imagens/pudim.jpeg" alt="Pudim Tradicional" />
+        <div class="conteudo-produto">
+          <h3>Pudim Tradicional</h3>
+          <p class="descricao">Receita caseira com leite condensado e calda caramelizada.</p>
+          <div class="rodape-card">
+            <span class="preco">R$ 7,00</span>
+            <a href="sobremesas.html" class="botao-detalhes">Ver mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-produto-gourmet">
+        <img src="bolo88.jpeg" alt="Bolo de Festa" />
+        <div class="conteudo-produto">
+          <h3>Bolo de Festa</h3>
+          <p class="descricao">Bolo decorado com recheio duplo, ideal para aniversários e comemorações.</p>
+          <div class="rodape-card">
+            <span class="preco">R$ 40,00</span>
+            <a href="bolo-f.html" class="botao-detalhes">Ver mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-produto-gourmet">
+        <img src="imagens/torta.jpeg" alt="Torta de Vitrine" />
+        <div class="conteudo-produto">
+          <h3>Torta de Vitrine</h3>
+          <p class="descricao">Torta delicada com massa amanteigada e frutas frescas.</p>
+          <div class="rodape-card">
+            <span class="preco">R$ 25,00</span>
+            <a href="torta-v.html" class="botao-detalhes">Ver mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-produto-gourmet">
+        <img src="imagens/browner.jpeg" alt="Brownie" />
+        <div class="conteudo-produto">
+          <h3>Brownie</h3>
+          <p class="descricao">Brownie de chocolate meio amargo com cobertura cremosa.</p>
+          <div class="rodape-card">
+            <span class="preco">R$ 6,00</span>
+            <a href="brownie.html" class="botao-detalhes">Ver mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-produto-gourmet">
+        <img src="slice.jpeg" alt="Slice Cake" />
+        <div class="conteudo-produto">
+          <h3>Slice Cake</h3>
+          <p class="descricao">Fatia de bolo artesanal com recheio especial e decoração gourmet.</p>
+          <div class="rodape-card">
+            <span class="preco">R$ 8,00</span>
+            <a href="slice-c.html" class="botao-detalhes">Ver mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
     const btn = document.getElementById('btnMenu');
@@ -235,16 +357,15 @@
     const wrapper = document.getElementById('wrapper');
     const btnFechar = document.getElementById('btnFechar');
 
-btnFechar.addEventListener('click', () => {
-  menu.classList.remove('show');
-  wrapper.classList.remove('shifted');
-});
+    btnFechar.addEventListener('click', () => {
+      menu.classList.remove('show');
+      wrapper?.classList.remove('shifted');
+    });
 
     btn.addEventListener('click', () => {
       menu.classList.toggle('show');
-      wrapper.classList.toggle('shifted');
+      wrapper?.classList.toggle('shifted');
     });
   </script>
-
 </body>
 </html>
